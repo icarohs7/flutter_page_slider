@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+  MyHomePage({Key? key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -68,17 +68,17 @@ class _MyHomePageState extends State<MyHomePage> {
               children: <Widget>[
                 FloatingActionButton(
                   child: Icon(Icons.arrow_back_ios),
-                  onPressed: () => _slider.currentState.previous(),
+                  onPressed: () => _slider.currentState!.previous(),
                 ),
                 FloatingActionButton(
                   child: Icon(Icons.arrow_forward_ios),
-                  onPressed: () => _slider.currentState.next(),
+                  onPressed: () => _slider.currentState!.next(),
                 ),
               ],
             ),
             MaterialButton(
               // jump to zero-indexed page number
-              onPressed: () => _slider.currentState.setPage(3),
+              onPressed: () => _slider.currentState!.setPage(3),
               child: Text('Go to last page'),
             ),
           ],
