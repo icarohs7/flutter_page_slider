@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 
 class PageSlider extends StatefulWidget {
   PageSlider({
-    @required this.pages,
+    required this.pages,
     this.duration,
     this.initialPage,
     this.onFinished,
-    @required Key key
+    Key? key
   }) : super(key: key);
 
   final List<Widget> pages;
-  final Duration duration;
-  final int initialPage;
-  final VoidCallback onFinished;
+  final Duration? duration;
+  final int? initialPage;
+  final VoidCallback? onFinished;
 
   PageSliderState createState() => PageSliderState();
 }
@@ -23,8 +23,8 @@ class PageSliderState extends State<PageSlider> with TickerProviderStateMixin {
   int _currentPage = 0;
   int get currentPage => _currentPage;
 
-  List<Animation<Offset>> _positions;
-  List<AnimationController> _controllers;
+  late List<Animation<Offset>> _positions;
+  late List<AnimationController> _controllers;
 
   @override
   void initState() { 
@@ -67,7 +67,7 @@ class PageSliderState extends State<PageSlider> with TickerProviderStateMixin {
 
   void next() {
     if (!hasNext) {
-      widget.onFinished();
+      widget.onFinished?.call();
       return;
     }
 

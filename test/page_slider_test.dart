@@ -18,7 +18,7 @@ void main() {
 
     await tester.pumpWidget(slider);
 
-    final sliderState = key.currentState;
+    final sliderState = key.currentState!;
 
     expect(sliderState.currentPage, 0);
     expect(sliderState.hasPrevious, false);
